@@ -8,26 +8,41 @@ public class Product {
 	String name;
 	String description;
 	double price;	
-	double iva = 0.22;
+	double iva;
+	
+	Product (String name, String description) {
+		this.name = name;
+		this.description = description;
+		setCode();
+		iva = 1.22;
+}
 
-
-	void setCode() {
-		
+	private void setCode() {
 		Random ran = new Random();
 		code = ran.nextInt(99999);
 	}
 	
-	double getBasePrice() {
-		
+	public int getCode() {
+		setCode();
+		return this.code;
+	}
+	
+	private double setPrice() {
 		return price;
 	}
 	
-	double getTotalPrice() {
-		
-		return (price * iva) + price;
+	public double getPrice() {
+			return setPrice();
+		}
+	
+	public String getTotalPrice() {
+		double totalPrice = price * iva;
+		String rounding = String.format("%.2f", totalPrice);
+		return rounding;
+
 	}
 	
-	String getCompleteName() {
+	public String getCompleteName() {
 		
 		return code + "-" + name;
 	}
