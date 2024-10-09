@@ -11,9 +11,9 @@ public class Product {
 	double iva;
 	
 	Product (String name, String description) {
+		setCode();
 		this.name = name;
 		this.description = description;
-		setCode();
 		iva = 1.22;
 }
 
